@@ -29,4 +29,6 @@ async def daily_challenge(x):
                   "2)Write a function that takes an integer minutes and converts it to seconds.\n Examples:\nconvert(5) ➞ 300\nconvert(3) ➞ 180\nconvert(2) ➞ 120"]
     # will choose random challenge from list then send it to server
     await x.send(f"{random.choice(challenges)}")
-client.run('paste code here')
+with open("token.txt", "r") as f:
+    token = f.read()
+client.run(token)
