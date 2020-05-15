@@ -3,6 +3,8 @@ from discord.ext import commands
 import random
 from dotenv import load_dotenv
 import os
+import datetime
+import asyncio
 load_dotenv()
 # discort.Client()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -15,7 +17,7 @@ async def on_ready():
 # on member join prints members name and joined
 @client.event
 async def on_member_join(member):
-    #creates direct message
+    # creates direct message
     await member.create_dm()
     #send direct message to user that joined
     await member.dm_channel.send(f"welcome to the ProjectZ server {member.name}")
@@ -46,4 +48,9 @@ async def test(x,text="hello"):
 @client.command()
 async def clear(x,y=1):
     await x.channel.purge(limit=y)
+@client.command()
+# currently not working
+async def new_project(ctx,name):
+    await ctx.channel.create_text_channel(name)
+
 client.run("paste token here")
