@@ -3,8 +3,6 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import random
-# commands.Bot(command_prefix = '.')
-# discort.Client()
 import pyjokes
 
 
@@ -20,7 +18,8 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 #### INITIALIZE CLIENT ####
 client = commands.Bot(command_prefix = '.')
-# print when bot is ready
+
+
 
 # Prints to terminal when bot is connected and ready 
 @client.event
@@ -30,6 +29,7 @@ async def on_ready():
 
 
 #### EVENTS ####
+
 
 # on member join send dm to user 
 async def on_member_join(member):
@@ -41,6 +41,8 @@ async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(embed=embed)
     
+
+
 
 
 
